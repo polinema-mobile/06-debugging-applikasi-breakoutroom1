@@ -3,6 +3,7 @@ package id.putraprima.mobile06siplecalcsolution;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getAngkaMasukan();
-                text_hasil.setText(String.valueOf(angka_pertama / angka_kedua));
+                text_hasil.setText(String.valueOf(angka_pertama / (angka_kedua*1.0)));
             }
         });
 
