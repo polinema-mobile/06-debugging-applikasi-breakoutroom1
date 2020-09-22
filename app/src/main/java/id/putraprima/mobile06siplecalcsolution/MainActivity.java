@@ -13,7 +13,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView text_hasil;
     private EditText edit_text_angka_pertama,edit_text_angka_kedua;
 
-    private int angka_pertama, angka_kedua;
+
+    private int angka_pertama, angka_kedua, hasil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         edit_text_angka_kedua = findViewById(R.id.edit_text_angka_kedua);
         edit_text_angka_pertama = findViewById(R.id.edit_text_angka_pertama);
 
-        //TODO 02 Buatlah kode program untuk menambahkan event klik dari tombol kali dan tombol bagi
+
 
         //TODO 03 Gunakanlah Log Cat Untuk memperbaiki kesalahan program
 
@@ -35,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO 05 Buatlah Validasi input agar masukan yang di isi oleh user tidak membuat program Force Close
 
+
         button_kurang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getAngkaMasukan();
-                text_hasil.setText(angka_pertama+angka_kedua);
-
+                text_hasil.setText(String.valueOf(angka_pertama - angka_kedua));
             }
         });
 
@@ -48,12 +49,36 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getAngkaMasukan();
-                text_hasil.setText(angka_pertama+angka_kedua);
+                text_hasil.setText(String.valueOf(angka_pertama + angka_kedua));
+            }
+        });
+        //TODO 02 Buatlah kode program untuk menambahkan event klik dari tombol kali dan tombol bagi
+        button_bagi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getAngkaMasukan();
+                text_hasil.setText(String.valueOf(angka_pertama / angka_kedua));
+            }
+        });
+
+        button_kali.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getAngkaMasukan();
+                text_hasil.setText(String.valueOf(angka_pertama * angka_kedua));
             }
         });
     }
 
     public void getAngkaMasukan(){
         //TODO 01 Buatlah kode program untuk mengambil nilai input dari edit text
+        if (edit_text_angka_pertama.getText().toString().trim().length() == 0){
+            edit_text_angka_pertama.setError("Inputan Harus Diisi");
+        }else if (edit_text_angka_kedua.getText().toString().trim().length() == 0) {
+            edit_text_angka_kedua.setError("Inputan Harus Diisi");
+        }else{
+            angka_pertama = Integer.parseInt(edit_text_angka_pertama.getText().toString());
+            angka_kedua = Integer.parseInt(edit_text_angka_kedua.getText().toString());
+        }
     }
 }
