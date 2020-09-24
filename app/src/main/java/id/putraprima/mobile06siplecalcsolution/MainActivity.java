@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 text_hasil.setText(String.valueOf(angka_pertama + angka_kedua));
             }
         });
+
         //TODO 02 Buatlah kode program untuk menambahkan event klik dari tombol kali dan tombol bagi
         button_bagi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getAngkaMasukan(){
-        //TODO 01 Buatlah kode program untuk mengambil nilai input dari edit text
+        //TODO  05 Buatlah Validasi input agar masukan yang di isi oleh user tidak membuat program Force Close
         if (edit_text_angka_pertama.getText().toString().trim().length() == 0){
             edit_text_angka_pertama.setError("Inputan Harus Diisi");
         }else if (edit_text_angka_kedua.getText().toString().trim().length() == 0) {
@@ -81,5 +82,25 @@ public class MainActivity extends AppCompatActivity {
             angka_pertama = Integer.parseInt(edit_text_angka_pertama.getText().toString());
             angka_kedua = Integer.parseInt(edit_text_angka_kedua.getText().toString());
         }
+    }
+
+    public int tambah(int angka_pertama, int angka_kedua) {
+        hasil = angka_pertama + angka_kedua;
+        return hasil;
+    }
+
+    public int kurang(int angka_pertama, int angka_kedua) {
+        hasil = angka_pertama - angka_kedua;
+        return hasil;
+    }
+
+    public int kali(int angka_pertama, int angka_kedua) {
+        hasil = angka_pertama * angka_kedua;
+        return hasil;
+    }
+
+    public int bagi(int angka_pertama, int angka_kedua) {
+        hasil = angka_pertama / angka_kedua;
+        return hasil;
     }
 }
